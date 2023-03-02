@@ -8,13 +8,13 @@ const Cuisine = () => {
   let params = useParams();
 
   const getCuisine = async (name) => {
-    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
+    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
     const recipes = await data.json();
     setCuisine(recipes.results);
   };
 
   useEffect(() => {
-    getCuisine('italian')
+    getCuisine(params.type)
     console.log(params.type);
   }, [params.type]);
 

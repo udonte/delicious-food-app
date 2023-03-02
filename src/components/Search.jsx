@@ -1,22 +1,23 @@
 import styled from "styled-components"
 import { useState } from "react"
-import { FaSearch } from "react-icons/fa"
-
-
+import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [input, setInput] = useState('');
+  let navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
-  }
-
+    const url = '/searched/';
+    navigate(url);
+  };
 
   return (
     <FormStyle onsubmit={submitHandler}>
       <div>
         <FaSearch />
-        <input
+        <input 
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)} />
