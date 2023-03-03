@@ -14,8 +14,7 @@ const Cuisine = () => {
   };
 
   useEffect(() => {
-    getCuisine(params.type)
-    console.log(params.type);
+    getCuisine(params.type);
   }, [params.type]);
 
   return (
@@ -51,8 +50,6 @@ const Card = styled.div`
     padding: 1rem;
   }
 `;
-
-
 
 export default Cuisine
  
