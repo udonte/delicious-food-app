@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
+
 const Cuisine = () => {
   const [cuisine, setCuisine] = useState([]);
   let params = useParams();
@@ -18,12 +19,19 @@ const Cuisine = () => {
   }, [params.type]);
 
   return (
-    <Grid>
+    <Grid
+      animate={{ opacity: 1 }}
+      initital={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5}}
+    >
       {cuisine.map((item) => {
         return (
           <Card key={item.id}>
+            <Link to={'/recipe/' + item.id}>
             <img src={item.image} alt="" />
-            <h4>{item.title}</h4>
+              <h4>{item.title}</h4>
+              </Link>
           </Card>
         );
       })}
@@ -31,7 +39,7 @@ const Cuisine = () => {
   )
 }
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 3rem; 
