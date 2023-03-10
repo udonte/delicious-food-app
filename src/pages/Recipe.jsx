@@ -16,7 +16,7 @@ const Recipe = () => {
     setDetails(detailData);
   };
   
-  //eslint-disable-next-line
+//eslint-disable-next-line
 
   useEffect(() => {
     fetchDetails();
@@ -37,7 +37,6 @@ const Recipe = () => {
           <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
         </div>
           )}
-
           {activeTab === 'ingredients' && (
             <ul>
           {details.extendedIngredients.map((ingredient) => (
