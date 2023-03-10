@@ -11,6 +11,7 @@ const Cuisine = () => {
   const getCuisine = async (name) => {
     const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
     const recipes = await data.json();
+    console.log(recipes);
     setCuisine(recipes.results);
   };
 
@@ -59,5 +60,5 @@ const Card = styled.div`
   }
 `;
 
-export default Cuisine
+export default Cuisine;
  

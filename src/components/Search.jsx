@@ -31,6 +31,7 @@ const FormStyle = styled.form`
     div{
       position: relative;
       width: 100%;
+      
     }
   
   input{
@@ -43,6 +44,8 @@ const FormStyle = styled.form`
     border-radius: 1rem;
     outline: none;
     Width: 100%;
+    transition: 0.5s;
+  box-shadow: 6px 6px 6px #cbced1, -3px -3px 3px white;
   }
 
   svg{

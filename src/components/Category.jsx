@@ -1,5 +1,5 @@
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
-import { GiChopsticks, GiWhiteBook } from 'react-icons/gi';
+import { GiChopsticks } from 'react-icons/gi';
 import { TbSoup } from 'react-icons/tb'
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
@@ -41,12 +41,14 @@ const SLink = styled(NavLink)`
   gap: 0.4rem;
   border-radius: 50%;
   margin-right: 2rem;
-  text-decoration none;
+  text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
   width: 6rem;
   height: 6rem;
   cursor: pointer;
   transform: scale(0.8);
+  transition: 0.5s;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
 
   h4{
     color: white;
