@@ -9,40 +9,32 @@ const Recipe = () => {
   let params = useParams();
 
 
+  useEffect(() => {
   const fetchDetails = async () => {
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const detailData = await data.json();
     console.log(detailData);
     setDetails(detailData);
   };
-  
-//eslint-disable-next-line
 
-  useEffect(() => {
-    fetchDetails();
-  }, [params.name]);  
-
-// useEffect(() => {
-//     if (wallet) {
-//     FetchNfts();      
-//     }
-//   }, [wallet])
-
+  fetchDetails();
+}, [params.name]);
   return (
     <DetailWrapper>
       <div>
         <h2>{details.title}</h2>
-        <img src={details.image} style={{borderRadius: '2rem' }} alt="" />
-      </div>d
+        <img src={details.image} style={{borderRadius: '2rem' }} alt='food' />
+      </div>
       <Info>
         <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => { setActiveTab('instructions')}}>Instructions</Button>
         <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => { setActiveTab('ingredients')}}>Ingredients</Button>
         {
           activeTab === 'instructions' && (
             <div>
-              <p dangerouslySetInnerHTML={{ __html: details.summary }} style={{ lineHeight: '2rem', fontSize: '1.3rem' }}></p>
+              <h3>Overview: </h3>
+              <p dangerouslySetInnerHTML={{ __html: details.summary }} style={{ lineHeight: '2rem', fontSize: '1rem' }}></p>
               <h3>Cooking Instructions: </h3>
-              <p dangerouslySetInnerHTML={{__html: details.instructions}} style={{marginLeft: '2rem'}}></p>
+              <p dangerouslySetInnerHTML={{__html: details.instructions}} style={{marginLeft: '2rem', lineHeight: '2rem'}}></p>
             </div>
           )}
           {activeTab === 'ingredients' && (
